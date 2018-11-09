@@ -42,6 +42,11 @@ class ViewController: UIViewController {
     @IBAction func botton9(_ sender: Any) {
         result.text = result.text! + "9"
     }
+    @IBAction func change(_ sender: Any) {
+        if result.text==""{
+            result.text = result.text! + "-"
+        }
+    }
     @IBAction func dot(_ sender: Any) {
         result.text = result.text! + "."
     }
@@ -52,6 +57,17 @@ class ViewController: UIViewController {
         temp = Double(result.text!)!
         result.text = ""
         flag = 1
+    }
+    @IBAction func bottonDEL(_ sender: Any) {
+        var tmp: String = result.text!
+        let j: Int = tmp.characters.count - 1
+        if tmp == ""{
+        }
+        else{
+            tmp = tmp.substring(to: tmp.index(tmp.startIndex, offsetBy: j))
+            result.text = tmp
+        }
+        
     }
     @IBAction func minus(_ sender: Any) {
         temp = Double(result.text!)!
