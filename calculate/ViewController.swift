@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var result: UITextField!
     var temp:Double = 0
     var flag = 0
+    var num:Double = 0
     @IBAction func botton0(_ sender: Any) {
         result.text = result.text! + "0"
     }
@@ -52,9 +53,27 @@ class ViewController: UIViewController {
     }
     @IBAction func bottonAC(_ sender: Any) {
         result.text = ""
+        temp = 0
+        num = 0
+        flag = 0
     }
     @IBAction func add(_ sender: Any) {
-        temp = Double(result.text!)!
+        num = Double(result.text!)!
+        if flag == 0{
+            temp = num
+        }
+        if flag == 1{
+            temp = temp + num
+        }
+        if flag == 2{
+            temp = temp - num
+        }
+        if flag == 3{
+            temp = temp * num
+        }
+        if flag == 4{
+            temp = temp / num
+        }
         result.text = ""
         flag = 1
     }
@@ -70,17 +89,63 @@ class ViewController: UIViewController {
         
     }
     @IBAction func minus(_ sender: Any) {
-        temp = Double(result.text!)!
+        num = Double(result.text!)!
+        if flag == 0{
+            temp = num
+            //flag1 = 1
+        }
+        if flag == 1{
+            temp = temp + num
+        }
+        if flag == 2{
+            temp = temp - num
+        }
+        if flag == 3{
+            temp = temp * num
+        }
+        if flag == 4{
+            temp = temp / num
+        }
         result.text = ""
         flag = 2
     }
     @IBAction func mutily(_ sender: Any) {
-        temp = Double(result.text!)!
+        num = Double(result.text!)!
+        if flag == 0{
+            temp = num
+        }
+        if flag == 1{
+            temp = temp + num
+        }
+        if flag == 2{
+            temp = temp - num
+        }
+        if flag == 3{
+            temp = temp * num
+        }
+        if flag == 4{
+            temp = temp / num
+        }
         result.text = ""
         flag = 3
     }
     @IBAction func divide(_ sender: Any) {
-        temp = Double(result.text!)!
+        num = Double(result.text!)!
+        if flag == 0{
+            temp = num
+        }
+        if flag == 1{
+            temp = temp + num
+        }
+        if flag == 2{
+            temp = temp - num
+        }
+        if flag == 3{
+            temp = temp * num
+        }
+        if flag == 4{
+            temp = temp / num
+        }
         result.text = ""
         flag = 4
     }
@@ -98,6 +163,9 @@ class ViewController: UIViewController {
             temp = temp / Double(result.text!)!
         }
         result.text = "\(temp)"
+        temp = 0
+        num = 0
+        flag = 0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
