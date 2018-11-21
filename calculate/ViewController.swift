@@ -72,7 +72,11 @@ class ViewController: UIViewController {
         flag = 0
     }
     @IBAction func add(_ sender: Any) {
-        num = Double(result.text!)!
+        if result.text! == ""{
+        }
+        else{
+            num = Double(result.text!)!
+        }
         if flag == 0{
             temp = num
         }
@@ -109,9 +113,16 @@ class ViewController: UIViewController {
             tmp1 = tmp1.substring(to: tmp1.index(tmp1.startIndex, offsetBy: i))
             show1.text = tmp1
         }
+        temp = 0
+       // num = 0
+        flag = 0
     }
     @IBAction func minus(_ sender: Any) {
-        num = Double(result.text!)!
+        if result.text! == ""{
+        }
+        else{
+            num = Double(result.text!)!
+        }
         if flag == 0{
             temp = num
             //flag1 = 1
@@ -133,7 +144,11 @@ class ViewController: UIViewController {
         show1.text = show1.text! + "-"
     }
     @IBAction func mutily(_ sender: Any) {
-        num = Double(result.text!)!
+        if result.text! == ""{
+        }
+        else{
+            num = Double(result.text!)!
+        }
         if flag == 0{
             temp = num
         }
@@ -154,7 +169,11 @@ class ViewController: UIViewController {
         show1.text = show1.text! + "*"
     }
     @IBAction func divide(_ sender: Any) {
-        num = Double(result.text!)!
+        if result.text! == ""{
+        }
+        else{
+            num = Double(result.text!)!
+        }
         if flag == 0{
             temp = num
         }
@@ -176,17 +195,22 @@ class ViewController: UIViewController {
     }
     @IBAction func results(_ sender: Any) {
         show1.text = show1.text! + "="
-        if flag == 1{
-            temp = temp + Double(result.text!)!
+        if result.text! == ""{
         }
-        if flag == 2{
-            temp = temp - Double(result.text!)!
-        }
-        if flag == 3{
-            temp = temp * Double(result.text!)!
-        }
-        if flag == 4{
-            temp = temp / Double(result.text!)!
+        else{
+            
+            if flag == 1{
+                temp = temp + Double(result.text!)!
+            }
+            if flag == 2{
+                temp = temp - Double(result.text!)!
+            }
+            if flag == 3{
+                temp = temp * Double(result.text!)!
+            }
+            if flag == 4{
+                temp = temp / Double(result.text!)!
+            }
         }
         result.text = "\(temp)"
         show1.text = show1.text! + "\(temp)"
