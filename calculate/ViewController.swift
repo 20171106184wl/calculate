@@ -7,13 +7,59 @@
 //
 
 import UIKit
-
+class number
+{
+    var top:Int = -1
+    var num1 = [Double](repeating: 0, count: 100)
+    func push1(sub4:Double){
+        top = top+1
+        num1[top]=sub4
+        
+    }
+    func pop1()->(Bool,nums:Double){
+        var nums:Double = 0
+        if top > -1{
+            nums = num1[top]
+            top = top-1
+            return (true,nums)
+        }
+        else{
+            return (false,nums)
+        }
+    }
+}
+class signal
+{
+    var top:Int = -1
+    var sig = [Int](repeating: 0, count: 100)
+    func push1(sigs:Int){
+        top = top+1
+        sig[top]=sigs
+        
+    }
+    func pop1()->(Bool,sigs:Int){
+        var sigs:Int = 0
+        var b:Bool = true
+        if top > -1{
+            sigs = sig[top]
+            top = top-1
+            return (b,sigs)
+        }
+        else{
+            b = false
+            return (b,sigs)
+            
+        }
+    }
+}
 class ViewController: UIViewController {
     @IBOutlet weak var show1: UITextField!
     @IBOutlet weak var result: UITextField!
-    var temp:Double = 0
-    var flag = 0
-    var num:Double = 0
+    //var temp:Double = 0
+    //var flag = 0
+    //var num:Double = 0
+    var num = number()
+    var sign = signal()
     @IBAction func botton0(_ sender: Any) {
         result.text = result.text! + "0"
         show1.text = show1.text! + "0"
@@ -67,12 +113,12 @@ class ViewController: UIViewController {
     @IBAction func bottonAC(_ sender: Any) {
         result.text = ""
         show1.text = ""
-        temp = 0
+        /*temp = 0
         num = 0
-        flag = 0
+        flag = 0*/
     }
     @IBAction func add(_ sender: Any) {
-        if result.text! == ""{
+        /*if result.text! == ""{
         }
         else{
             num = Double(result.text!)!
@@ -91,9 +137,9 @@ class ViewController: UIViewController {
         }
         if flag == 4{
             temp = temp / num
-        }
+        }*/
         result.text = ""
-        flag = 1
+        //flag = 1
         show1.text = show1.text! + "+"
     }
     @IBAction func bottonDEL(_ sender: Any) {
@@ -113,12 +159,12 @@ class ViewController: UIViewController {
             tmp1 = tmp1.substring(to: tmp1.index(tmp1.startIndex, offsetBy: i))
             show1.text = tmp1
         }
-        temp = 0
+        //temp = 0
        // num = 0
-        flag = 0
+        //flag = 0
     }
     @IBAction func minus(_ sender: Any) {
-        if result.text! == ""{
+        /*if result.text! == ""{
         }
         else{
             num = Double(result.text!)!
@@ -138,13 +184,13 @@ class ViewController: UIViewController {
         }
         if flag == 4{
             temp = temp / num
-        }
+        }*/
         result.text = ""
-        flag = 2
+        //flag = 2
         show1.text = show1.text! + "-"
     }
     @IBAction func mutily(_ sender: Any) {
-        if result.text! == ""{
+        /*if result.text! == ""{
         }
         else{
             num = Double(result.text!)!
@@ -163,13 +209,13 @@ class ViewController: UIViewController {
         }
         if flag == 4{
             temp = temp / num
-        }
+        }*/
         result.text = ""
-        flag = 3
+        //flag = 3
         show1.text = show1.text! + "*"
     }
     @IBAction func divide(_ sender: Any) {
-        if result.text! == ""{
+        /*if result.text! == ""{
         }
         else{
             num = Double(result.text!)!
@@ -188,14 +234,157 @@ class ViewController: UIViewController {
         }
         if flag == 4{
             temp = temp / num
-        }
+        }*/
         result.text = ""
-        flag = 4
+        //flag = 4
         show1.text = show1.text! + "/"
     }
     @IBAction func results(_ sender: Any) {
         show1.text = show1.text! + "="
-        if result.text! == ""{
+        var tmp: String = show1.text!
+        var count = tmp.characters.count
+        var frnum:Int = 0
+        var afnum:Int = 0
+        var index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
+        var index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
+        var sub4 = tmp[index3..<index4]
+        var cnum1: Double = 0
+        var op1:Double = 0
+        var op2:Double = 0
+        var op3:Double = 0
+        var op4:Double = 0
+        var sig1:Int = 0
+        var sig:Int = 0
+        for c in tmp.characters {
+            if c == "+"{
+                index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
+                index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
+                sub4 = tmp[index3..<index4]
+                frnum = afnum + 1
+                cnum1 = Double(sub4)!
+                num.push1(sub4:cnum1)
+                sig = 1
+                if sign.top == -1{
+                    sign.push1(sigs: sig)
+                }
+                else if sign.sig[sign.top] > sig{
+                    op2 = num.pop1().nums
+                    op1 = num.pop1().nums
+                    sig1 = sign.pop1().sigs
+                    if sig1 == 2{
+                        op3 = op1 - op2
+                    }
+                    if sig1 == 3{
+                        op3 = op1 * op2
+                    }
+                    if sig1 == 4{
+                        op3 = op1 / op2
+                    }
+                    num.push1(sub4: op3)
+                    sign.push1(sigs: sig)
+                }
+                else{
+                    sign.push1(sigs: sig)
+                }
+            }
+            if c == "-"{
+                index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
+                index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
+                sub4 = tmp[index3..<index4]
+                frnum = afnum + 1
+                cnum1 = Double(sub4)!
+                num.push1(sub4:cnum1)
+                sig = 2
+                if sign.top == -1{
+                    sign.push1(sigs: sig)
+                }
+                else if sign.sig[sign.top] > sig{
+                    op2 = num.pop1().nums
+                    op1 = num.pop1().nums
+                    sig1 = sign.pop1().sigs
+                    if sig1 == 3{
+                        op3 = op1 * op2
+                    }
+                    if sig1 == 4{
+                        op3 = op1 / op2
+                    }
+                    num.push1(sub4: op3)
+                    sign.push1(sigs: sig)
+                }
+                else{
+                    sign.push1(sigs: sig)
+                }
+            }
+            if c == "*"{
+                index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
+                index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
+                sub4 = tmp[index3..<index4]
+                frnum = afnum + 1
+                cnum1 = Double(sub4)!
+                num.push1(sub4:cnum1)
+                sig = 3
+                if sign.top == -1{
+                    sign.push1(sigs: sig)
+                }
+                else if sign.sig[sign.top] > sig{
+                    op2 = num.pop1().nums
+                    op1 = num.pop1().nums
+                    sig1 = sign.pop1().sigs
+                    if sig1 == 4{
+                        op3 = op1 / op2
+                    }
+                    num.push1(sub4: op3)
+                    sign.push1(sigs: sig)
+                }
+                else{
+                    sign.push1(sigs: sig)
+                }
+            }
+            if c == "/"{
+                index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
+                index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
+                sub4 = tmp[index3..<index4]
+                frnum = afnum + 1
+                cnum1 = Double(sub4)!
+                num.push1(sub4:cnum1)
+                sig = 4
+                sign.push1(sigs: sig)
+            }
+            if c == "="{
+                index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
+                index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
+                sub4 = tmp[index3..<index4]
+                frnum = afnum + 1
+                cnum1 = Double(sub4)!
+                num.push1(sub4:cnum1)
+                while num.top > -1 && sign.top > -1{
+                    op2 = num.pop1().nums
+                    print(op2)
+                    op1 = num.pop1().nums
+                    print(op1)
+                    sig1 = sign.pop1().sigs
+                    if sig1 == 1{
+                        op3 = op1 + op2
+                    }
+                    if sig1 == 2{
+                        op3 = op1 - op2
+                    }
+                    if sig1 == 3{
+                        op3 = op1 * op2
+                    }
+                    if sig1 == 4{
+                        op3 = op1 / op2
+                    }
+                    num.push1(sub4: op3)
+                }
+            }
+            count = count - 1
+            afnum = afnum + 1
+        }
+        op4 = num.pop1().nums
+        result.text = "\(op4)"
+        show1.text = show1.text! + "\(op4)"
+        /*if result.text! == ""{
         }
         else{
             
@@ -213,10 +402,10 @@ class ViewController: UIViewController {
             }
         }
         result.text = "\(temp)"
-        show1.text = show1.text! + "\(temp)"
-        temp = 0
-        num = 0
-        flag = 0
+        show1.text = show1.text! + "\(temp)"*/
+        //temp = 0
+        //num = 0
+        //flag = 0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
