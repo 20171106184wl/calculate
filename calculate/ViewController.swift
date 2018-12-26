@@ -503,9 +503,7 @@ class ViewController: UIViewController {
                 frnum = afnum + 1
                 while num.top > -1 && sign.top > -1{
                     op2 = num.pop1().nums
-                    print(op2)
                     op1 = num.pop1().nums
-                    print(op1)
                     sig1 = sign.pop1().sigs
                     if sig1 == 1{
                         op3 = op1 + op2
