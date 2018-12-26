@@ -284,8 +284,10 @@ class ViewController: UIViewController {
                 }
                 frnum = afnum + 1
                 sig = 1
+                while sign.top > -2{
                 if sign.top == -1{
                     sign.push1(sigs: sig)
+                    break
                 }
                 else if sign.sig[sign.top] > sig{
                     op2 = num.pop1().nums
@@ -301,10 +303,12 @@ class ViewController: UIViewController {
                         op3 = op1 / op2
                     }
                     num.push1(sub4: op3)
-                    sign.push1(sigs: sig)
+                    //sign.push1(sigs: sig)
                 }
                 else{
                     sign.push1(sigs: sig)
+                    break
+                }
                 }
             }
             if c == "-"{
@@ -326,13 +330,18 @@ class ViewController: UIViewController {
                 }
                 frnum = afnum + 1
                 sig = 2
+                while sign.top > -2{
                 if sign.top == -1{
                     sign.push1(sigs: sig)
+                    break
                 }
-                else if sign.sig[sign.top] > sig{
+                else if sign.sig[sign.top] >= sig{
                     op2 = num.pop1().nums
                     op1 = num.pop1().nums
                     sig1 = sign.pop1().sigs
+                    if sig1 == 2{
+                        op3 = op1 - op2
+                    }
                     if sig1 == 3{
                         op3 = op1 * op2
                     }
@@ -340,10 +349,12 @@ class ViewController: UIViewController {
                         op3 = op1 / op2
                     }
                     num.push1(sub4: op3)
-                    sign.push1(sigs: sig)
+                    //sign.push1(sigs: sig)
                 }
                 else{
                     sign.push1(sigs: sig)
+                    break
+                }
                 }
             }
             if c == "*"{
@@ -365,8 +376,10 @@ class ViewController: UIViewController {
                 }
                 frnum = afnum + 1
                 sig = 3
+                while sign.top > -2{
                 if sign.top == -1{
                     sign.push1(sigs: sig)
+                    break
                 }
                 else if sign.sig[sign.top] > sig{
                     op2 = num.pop1().nums
@@ -376,10 +389,12 @@ class ViewController: UIViewController {
                         op3 = op1 / op2
                     }
                     num.push1(sub4: op3)
-                    sign.push1(sigs: sig)
+                    //sign.push1(sigs: sig)
                 }
                 else{
                     sign.push1(sigs: sig)
+                    break
+                }
                 }
             }
             if c == "/"{
@@ -394,7 +409,6 @@ class ViewController: UIViewController {
                         cnum1 = Double(sub4)!
                         num.push1(sub4:cnum1)
                     }
-                    
                 }
                 else
                 {
@@ -402,7 +416,28 @@ class ViewController: UIViewController {
                 }
                 frnum = afnum + 1
                 sig = 4
-                sign.push1(sigs: sig)
+                //sign.push1(sigs: sig)
+                while sign.top > -2{
+                if sign.top == -1
+                {
+                    sign.push1(sigs: sig)
+                    break
+                }
+                else if sign.sig[sign.top] == sig{
+                op2 = num.pop1().nums
+                op1 = num.pop1().nums
+                sig1 = sign.pop1().sigs
+                if sig1 == 4{
+                    op3 = op1 / op2
+                    }
+                    num.push1(sub4: op3)
+                    //sign.push1(sigs: sig)
+                }
+                else{
+                    sign.push1(sigs: sig)
+                    break
+                    }
+                }
             }
             if c == "("{
                 frnum = afnum + 1
@@ -425,9 +460,7 @@ class ViewController: UIViewController {
                 if num.top > -1 && sign.top > -1{
                 while sign.sig[sign.top] != -2 {
                     op2 = num.pop1().nums
-                    print(op2)
                     op1 = num.pop1().nums
-                    print(op1)
                     sig1 = sign.pop1().sigs
                     if sig1 == 1{
                         op3 = op1 + op2
@@ -452,7 +485,10 @@ class ViewController: UIViewController {
                     index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
                     index4 = tmp.index(tmp.startIndex, offsetBy: afnum)
                     sub4 = tmp[index3..<index4]
-                    if sub4 == ""{
+                    if sub4 == "" {
+                        num.push1(sub4:0)
+                    }
+                    else if sub4 == "." {
                         num.push1(sub4:0)
                     }
                     else{
