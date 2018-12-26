@@ -285,30 +285,30 @@ class ViewController: UIViewController {
                 frnum = afnum + 1
                 sig = 1
                 while sign.top > -2{
-                if sign.top == -1{
-                    sign.push1(sigs: sig)
+                    if sign.top == -1{
+                        sign.push1(sigs: sig)
                     break
-                }
-                else if sign.sig[sign.top] > sig{
-                    op2 = num.pop1().nums
-                    op1 = num.pop1().nums
-                    sig1 = sign.pop1().sigs
-                    if sig1 == 2{
-                        op3 = op1 - op2
                     }
-                    if sig1 == 3{
-                        op3 = op1 * op2
+                    else if sign.sig[sign.top] > sig{
+                        op2 = num.pop1().nums
+                        op1 = num.pop1().nums
+                        sig1 = sign.pop1().sigs
+                        if sig1 == 2{
+                            op3 = op1 - op2
+                        }
+                        if sig1 == 3{
+                            op3 = op1 * op2
+                        }
+                        if sig1 == 4{
+                            op3 = op1 / op2
+                        }
+                        num.push1(sub4: op3)
+                        //sign.push1(sigs: sig)
                     }
-                    if sig1 == 4{
-                        op3 = op1 / op2
+                    else{
+                        sign.push1(sigs: sig)
+                        break
                     }
-                    num.push1(sub4: op3)
-                    //sign.push1(sigs: sig)
-                }
-                else{
-                    sign.push1(sigs: sig)
-                    break
-                }
                 }
             }
             if c == "-"{
@@ -331,30 +331,30 @@ class ViewController: UIViewController {
                 frnum = afnum + 1
                 sig = 2
                 while sign.top > -2{
-                if sign.top == -1{
-                    sign.push1(sigs: sig)
-                    break
-                }
-                else if sign.sig[sign.top] >= sig{
-                    op2 = num.pop1().nums
-                    op1 = num.pop1().nums
-                    sig1 = sign.pop1().sigs
-                    if sig1 == 2{
-                        op3 = op1 - op2
+                    if sign.top == -1{
+                        sign.push1(sigs: sig)
+                        break
                     }
-                    if sig1 == 3{
-                        op3 = op1 * op2
+                    else if sign.sig[sign.top] >= sig{
+                        op2 = num.pop1().nums
+                        op1 = num.pop1().nums
+                        sig1 = sign.pop1().sigs
+                        if sig1 == 2{
+                            op3 = op1 - op2
+                        }
+                        if sig1 == 3{
+                            op3 = op1 * op2
+                        }
+                        if sig1 == 4{
+                            op3 = op1 / op2
+                        }
+                        num.push1(sub4: op3)
+                        //sign.push1(sigs: sig)
                     }
-                    if sig1 == 4{
-                        op3 = op1 / op2
+                    else{
+                        sign.push1(sigs: sig)
+                        break
                     }
-                    num.push1(sub4: op3)
-                    //sign.push1(sigs: sig)
-                }
-                else{
-                    sign.push1(sigs: sig)
-                    break
-                }
                 }
             }
             if c == "*"{
@@ -377,24 +377,24 @@ class ViewController: UIViewController {
                 frnum = afnum + 1
                 sig = 3
                 while sign.top > -2{
-                if sign.top == -1{
-                    sign.push1(sigs: sig)
-                    break
-                }
-                else if sign.sig[sign.top] > sig{
-                    op2 = num.pop1().nums
-                    op1 = num.pop1().nums
-                    sig1 = sign.pop1().sigs
-                    if sig1 == 4{
-                        op3 = op1 / op2
+                    if sign.top == -1{
+                        sign.push1(sigs: sig)
+                        break
                     }
-                    num.push1(sub4: op3)
-                    //sign.push1(sigs: sig)
-                }
-                else{
-                    sign.push1(sigs: sig)
-                    break
-                }
+                    else if sign.sig[sign.top] > sig{
+                        op2 = num.pop1().nums
+                        op1 = num.pop1().nums
+                        sig1 = sign.pop1().sigs
+                        if sig1 == 4{
+                            op3 = op1 / op2
+                        }
+                        num.push1(sub4: op3)
+                        //sign.push1(sigs: sig)
+                    }
+                    else{
+                        sign.push1(sigs: sig)
+                        break
+                    }
                 }
             }
             if c == "/"{
@@ -418,24 +418,24 @@ class ViewController: UIViewController {
                 sig = 4
                 //sign.push1(sigs: sig)
                 while sign.top > -2{
-                if sign.top == -1
-                {
-                    sign.push1(sigs: sig)
-                    break
-                }
-                else if sign.sig[sign.top] == sig{
-                op2 = num.pop1().nums
-                op1 = num.pop1().nums
-                sig1 = sign.pop1().sigs
-                if sig1 == 4{
-                    op3 = op1 / op2
+                    if sign.top == -1
+                    {
+                        sign.push1(sigs: sig)
+                        break
                     }
-                    num.push1(sub4: op3)
-                    //sign.push1(sigs: sig)
-                }
-                else{
-                    sign.push1(sigs: sig)
-                    break
+                    else if sign.sig[sign.top] == sig{
+                        op2 = num.pop1().nums
+                        op1 = num.pop1().nums
+                        sig1 = sign.pop1().sigs
+                        if sig1 == 4{
+                            op3 = op1 / op2
+                        }
+                        num.push1(sub4: op3)
+                        //sign.push1(sigs: sig)
+                    }
+                    else{
+                        sign.push1(sigs: sig)
+                        break
                     }
                 }
             }
