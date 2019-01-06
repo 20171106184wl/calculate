@@ -152,15 +152,11 @@ class ViewController: UIViewController {
         var tmp1: String = show1.text!
         let j: Int = tmp.characters.count - 1
         let i: Int = tmp1.characters.count - 1
-        if tmp == ""{
-        }
-        else{
+        if tmp != ""{
             tmp = tmp.substring(to: tmp.index(tmp.startIndex, offsetBy: j))
             result.text = tmp
         }
-        if tmp1 == ""{
-        }
-        else{
+        if tmp1 != ""{
             tmp1 = tmp1.substring(to: tmp1.index(tmp1.startIndex, offsetBy: i))
             show1.text = tmp1
         }
