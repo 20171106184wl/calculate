@@ -7,8 +7,7 @@
 //
 
 import UIKit
-class number
-{
+class number{
     var top:Int = -1
     var num1 = [Double](repeating: 0, count: 100)
     func push1(sub4:Double){
@@ -28,8 +27,7 @@ class number
         }
     }
 }
-class signal
-{
+class signal{
     var top:Int = -1
     var sig = [Int](repeating: 0, count: 100)
     func push1(sigs:Int){
@@ -48,7 +46,6 @@ class signal
         else{
             b = false
             return (b,sigs)
-            
         }
     }
 }
@@ -278,8 +275,7 @@ class ViewController: UIViewController {
                         num.push1(sub4:cnum1)
                     }
                 }
-                else
-                {
+                else{
                     flag = 1
                 }
                 frnum = afnum + 1
@@ -324,8 +320,7 @@ class ViewController: UIViewController {
                         num.push1(sub4:cnum1)
                     }
                 }
-                else
-                {
+                else{
                     flag = 1
                 }
                 frnum = afnum + 1
@@ -370,8 +365,7 @@ class ViewController: UIViewController {
                         num.push1(sub4:cnum1)
                     }
                 }
-                else
-                {
+                else{
                     flag = 1
                 }
                 frnum = afnum + 1
@@ -410,16 +404,14 @@ class ViewController: UIViewController {
                         num.push1(sub4:cnum1)
                     }
                 }
-                else
-                {
+                else{
                     flag = 1
                 }
                 frnum = afnum + 1
                 sig = 4
                 //sign.push1(sigs: sig)
                 while sign.top > -2{
-                    if sign.top == -1
-                    {
+                    if sign.top == -1{
                         sign.push1(sigs: sig)
                         break
                     }
@@ -458,7 +450,7 @@ class ViewController: UIViewController {
                 }
                 //sig = -4
                 if num.top > -1 && sign.top > -1{
-                while sign.sig[sign.top] != -2 {
+                    while sign.sig[sign.top] != -2 {
                     op2 = num.pop1().nums
                     op1 = num.pop1().nums
                     sig1 = sign.pop1().sigs
@@ -477,9 +469,9 @@ class ViewController: UIViewController {
                     num.push1(sub4: op3)
                 }
                 sign.pop1()
-                }
-                flag = 0
             }
+            flag = 0
+        }
             if c == "="{
                 if flag == 1{
                     index3 = tmp.index(tmp.startIndex, offsetBy: frnum)
@@ -496,8 +488,7 @@ class ViewController: UIViewController {
                         num.push1(sub4:cnum1)
                     }
                 }
-                else
-                {
+                else{
                     flag = 1
                 }
                 frnum = afnum + 1
